@@ -52,7 +52,7 @@ def get_boxed_signature():
   Image.open("signature_beta.png").show()
   
 if __name__ == "__main__":
-  filename = str(raw_input("Where is yoir signature click?"))
+  filename = str(raw_input("Where is your signature click? "))
   img = Image.open(filename)
   enhance_signature(img)
   get_boxed_signature()
