@@ -1,3 +1,9 @@
+############################################################
+#------------- Author: Joe Lewis---------------------------#
+#------------- License: Not good enough to be Licenced :) -#
+#------------- P.S Sorry I don't like Gists ---------------#
+############################################################
+
 import Image, ImageEnhance
 
 def enhance_signature(img):
@@ -8,6 +14,7 @@ def enhance_signature(img):
   sign = contrast.convert("RGBA")
   datas = sign.getdata()
 
+  #--- Algo to detect non-signatured areas and reduce its alpha to zero --#
   newData = []
   for item in datas:
     if item[0] >  200 and item[1] > 200 and item[2] > 200:
@@ -25,7 +32,8 @@ def get_boxed_signature():
   
   start_pixel = [img.size[0], img.size[1]]
   end_pixel = [0,0]
-  
+
+  #--- Algo to detect the region of space containing signature --#
   for y in xrange(img.size[1]):
     for x in xrange(img.size[0]):
       if pixdata[x, y][0] < 200 and pixdata[x, y][1] < 200 and pixdata[x, y][2] < 200:
